@@ -1,55 +1,9 @@
-// Union Types
-function combine(
-   input1: number | string,
-   input2: number | string,
-   resultConverion: string
-) {
-   let result;
-   if (typeof input1 === 'number' && typeof input2 === 'number') {
-      result = input1 + input2;
-   } else {
-      result = input1.toString() + input2.toString();
-   }
-   return result;
+function add(n1: number, n2: number) {
+   return n1 + n2;
 }
 
-const combinedAges = combine(30, 26, 'as-number');
-const combinedNames = combine('Max', 'William', 'as-string');
-
-console.log(combinedAges);
-console.log(combinedNames);
-
-////// Literal Types
-
-function combining(
-   input1: number | string,
-   input2: number | string,
-   resultConversion: string
-) {
-   let result;
-   if (typeof input1 === 'number' && typeof input2 === 'number') {
-      result = input1 + input2;
-   } else {
-      result = input1.toString() + input2.toString();
-   }
-   if (resultConversion === 'as-number') {
-      return +result;
-   } else {
-      return result.toString();
-   }
+function printResult(num: number) {
+   console.log('Result: ' + num);
 }
 
-const combinedAge = combining(30, 26, 'as-number');
-const combinedName = combining('Max', 'William', 'as-string');
-const combinedNumber = combining('30', '20', 'as-string');
-
-console.log(combinedAge);
-console.log(combinedName);
-console.log(combinedNumber);
-
-////// Type Aliases / Custom Types
-
-type Combinable = number | string;
-type ConversionDescriptor = 'as-number' | 'as-text';
-
-function comb(inp: Combinable) {}
+printResult(add(5, 12));
