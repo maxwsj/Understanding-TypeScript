@@ -19,7 +19,7 @@ const combinedNames = combine('Max', 'William', 'as-string');
 console.log(combinedAges);
 console.log(combinedNames);
 
-// Literal Types
+////// Literal Types
 
 function combining(
    input1: number | string,
@@ -46,3 +46,10 @@ const combinedNumber = combining('30', '20', 'as-string');
 console.log(combinedAge);
 console.log(combinedName);
 console.log(combinedNumber);
+
+////// Type Aliases / Custom Types
+
+type Combinable = number | string;
+type ConversionDescriptor = 'as-number' | 'as-text';
+
+function comb(inp: Combinable) {}
