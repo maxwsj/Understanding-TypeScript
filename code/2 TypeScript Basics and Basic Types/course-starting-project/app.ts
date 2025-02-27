@@ -22,3 +22,19 @@ const cars: {
    quantity: 2,
    role: [0, 'string'],
 };
+
+// Working with ENUMs
+
+enum Role {
+   ADMIN, // 0
+   READ_ONLY, // 1
+   AUTHOR, // 2
+}
+
+const teacher = {
+   role: Role.ADMIN,
+};
+
+if (teacher.role === Role.ADMIN) {
+   console.log('Admin roles');
+}
