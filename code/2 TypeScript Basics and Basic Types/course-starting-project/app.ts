@@ -1,40 +1,16 @@
-const person: {
-   name: string;
-   age: number;
-} = {
-   name: 'Max',
-   age: 30,
-};
-console.log(person);
-
-///// Arrays Types
-let favoriteActivities: string[];
-favoriteActivities = ['Sports', 'Video Games'];
-
-//// Working with Tuples
-
-const cars: {
-   name: string;
-   quantity: number;
-   role: [number, string];
-} = {
-   name: 'Mercedez',
-   quantity: 2,
-   role: [0, 'string'],
-};
-
-// Working with ENUMs
-
-enum Role {
-   ADMIN, // 0
-   READ_ONLY, // 1
-   AUTHOR, // 2
+// Union Types
+function combine(input1: number | string, input2: number | string) {
+   let result;
+   if (typeof input1 === 'number' && typeof input2 === 'number') {
+      result = input1 + input2;
+   } else {
+      result = input1.toString() + input2.toString();
+   }
+   return result;
 }
 
-const teacher = {
-   role: Role.ADMIN,
-};
+const combinedAges = combine(30, 26);
+const combinedNames = combine('Max', 'William');
 
-if (teacher.role === Role.ADMIN) {
-   console.log('Admin roles');
-}
+console.log(combinedAges);
+console.log(combinedNames);
