@@ -32,7 +32,7 @@ function printEmployeeInformation(emp: UnknownEmployee) {
 
 printEmployeeInformation(e1);
 
-// Discriminated Unions
+//////////// Discriminated Unions
 interface Bird {
    type: 'bird';
    flyingSpeed: number;
@@ -58,3 +58,12 @@ function moveAnimal(animal: Animal) {
 }
 
 moveAnimal({ type: 'bird', flyingSpeed: 30 });
+
+///////////// Type Casting
+
+// const userInputElement = <HTMLInputElement>(
+//    document.getElementById('user-input')
+// );
+const userInputElement = document.getElementById(
+   'user-input'
+) as HTMLInputElement;
