@@ -1,6 +1,12 @@
-interface Greetable {
-   name: string;
+interface Named {
+   readonly name: string;
+}
 
+interface AddFn {
+   (a: number, b: number): number;
+}
+
+interface Greetable extends Named {
    greet(phrase: string): void;
 }
 
