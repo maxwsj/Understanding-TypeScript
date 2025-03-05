@@ -23,3 +23,5 @@ type User = {
 };
 
 ///////// Nullish coalescing
+let input = null;
+const didProvideInput = input ?? false;
