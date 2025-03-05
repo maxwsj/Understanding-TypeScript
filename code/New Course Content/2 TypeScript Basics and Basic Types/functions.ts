@@ -9,6 +9,10 @@ function log(message: string) {
 }
 
 ///////// The “never” type
+function logAndThrow(errorMessage: string): never {
+   console.log(errorMessage);
+   throw new Error(errorMessage);
+}
 
 ///////// Functions as types
 
