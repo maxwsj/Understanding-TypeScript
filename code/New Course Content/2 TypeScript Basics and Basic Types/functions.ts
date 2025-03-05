@@ -20,6 +20,7 @@ function performJob(cb: (st: string) => string) {
 }
 
 ///////// null & undefined - special types
+let a: null | string;
 
 ///////// Inferred null & a first look at type narrowing
 
