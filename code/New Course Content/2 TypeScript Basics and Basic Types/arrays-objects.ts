@@ -31,6 +31,11 @@ let user: {
 let val: {} = 'is a value';
 
 ///////// Flexible objects with the record type
+let data: Record<string, number | string>;
+
+data = {
+   entry1: 1,
+};
 
 ///////// Working with Enums
 
