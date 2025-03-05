@@ -11,5 +11,15 @@ function process(val: unknown) {
 }
 
 ///////// Optional values & typescript
+function generateError(msg?: string) {
+   throw new Error(msg);
+}
+
+/// optional properties
+type User = {
+   name: string;
+   age: number;
+   role?: 'admin' | 'guest';
+};
 
 ///////// Nullish coalescing
