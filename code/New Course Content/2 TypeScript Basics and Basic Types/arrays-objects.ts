@@ -11,3 +11,6 @@ let person: Array<string | number>;
 person = [1, 'Max'];
 person = [5, 1];
 person = ['Max', 'Andressa'];
+
+// Tuple types
+let possibleResults: [number, number];
