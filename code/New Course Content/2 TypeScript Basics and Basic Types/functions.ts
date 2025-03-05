@@ -37,6 +37,7 @@ const inputEle = document.getElementById('user-name')!;
 console.log(inputEl?.value);
 
 ///////// Type casting
+const inputE = document.getElementById('user-name') as HTMLInputElement | null;
 
 ///////// The “unknown” type
 
