@@ -15,6 +15,9 @@ let userT: 'admin' | 'editor' | 'guest' = 'admin';
 userT = 'guest';
 
 ///////// Types Aliases & custom types
+type Permission = 'admin' | 'editor' | 'guest';
+
+function access(role: Permission) {}
 
 ///////// Function return value types
 
