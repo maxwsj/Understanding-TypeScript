@@ -32,6 +32,9 @@ if (!inputEl) {
 console.log(inputEl.value);
 
 ///////// Forced “Not Null” and optional chaining
+const inputEle = document.getElementById('user-name')!;
+
+console.log(inputEl?.value);
 
 ///////// Type casting
 
