@@ -15,6 +15,9 @@ function logAndThrow(errorMessage: string): never {
 }
 
 ///////// Functions as types
+function performJob(cb: (st: string) => string) {
+   cb('1');
+}
 
 ///////// null & undefined - special types
 
