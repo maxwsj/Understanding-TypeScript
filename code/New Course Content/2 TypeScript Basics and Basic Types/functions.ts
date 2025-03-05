@@ -38,9 +38,3 @@ console.log(inputEl?.value);
 
 ///////// Type casting
 const inputE = document.getElementById('user-name') as HTMLInputElement | null;
-
-///////// The “unknown” type
-
-///////// Optional values & typescript
-
-///////// Nullish coalescing
