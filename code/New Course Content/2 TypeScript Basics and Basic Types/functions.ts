@@ -4,6 +4,9 @@ function add(a: number, b: number): number {
 }
 
 ///////// The “void” type
+function log(message: string) {
+   console.log(message);
+}
 
 ///////// The “never” type
 
