@@ -23,6 +23,13 @@ function performJob(cb: (st: string) => string) {
 let a: null | string;
 
 ///////// Inferred null & a first look at type narrowing
+const inputEl = document.getElementById('user-name');
+
+if (!inputEl) {
+   throw new Error('Element not found!');
+}
+
+console.log(inputEl.value);
 
 ///////// Forced “Not Null” and optional chaining
 
