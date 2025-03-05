@@ -9,7 +9,10 @@ let userRole: Role = Role.Admin;
 
 let userR: Role = 2;
 
-///////// Beign specific with literal types
+///////// Being specific with literal types
+let userT: 'admin' | 'editor' | 'guest' = 'admin';
+
+userT = 'guest';
 
 ///////// Types Aliases & custom types
 
