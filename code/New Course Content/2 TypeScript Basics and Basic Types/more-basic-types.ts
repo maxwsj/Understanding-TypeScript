@@ -18,25 +18,3 @@ userT = 'guest';
 type Permission = 'admin' | 'editor' | 'guest';
 
 function access(role: Permission) {}
-
-///////// Function return value types
-
-///////// The “void” type
-
-///////// The “never” type
-
-///////// Functions as types
-
-///////// null & undefined - special types
-
-///////// Inferred null & a first look at type narrowing
-
-///////// Forced “Not Null” and optional chaining
-
-///////// Type casting
-
-///////// The “unknown” type
-
-///////// Optional values & typescript
-
-///////// Nullish coalescing
