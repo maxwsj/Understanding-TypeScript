@@ -11,7 +11,16 @@ type InvestmentData = {
    duration: number;
 };
 
-function calculateInvestment(data: InvestmentData) {} // => result[]
+type InvestmentResult = {
+   year: string;
+   totalAmount: number;
+   totalContributions: number;
+   totalInterestEarned: number;
+};
+
+type CalculationResult = InvestmentResult[] | string;
+
+function calculateInvestment(data: InvestmentData): CalculationResult {} // => result[]
 
 function printResults(results: number[]) {
    // print output the result data
