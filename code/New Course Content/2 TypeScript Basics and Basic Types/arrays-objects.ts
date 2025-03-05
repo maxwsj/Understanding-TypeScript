@@ -28,33 +28,34 @@ let user: {
 };
 
 ///////// Tricky: The "Must Not Be Null" Type
+let val: {} = 'is a value';
 
-/////////Flexible objects with the record type
+///////// Flexible objects with the record type
 
-/////////Working with Enums
+///////// Working with Enums
 
-/////////Beign specific with literal types
+///////// Beign specific with literal types
 
-/////////Types Aliases & custom types
+///////// Types Aliases & custom types
 
-/////////Function return value types
+///////// Function return value types
 
-/////////The “void” type
+///////// The “void” type
 
-/////////The “never” type
+///////// The “never” type
 
-/////////Functions as types
+///////// Functions as types
 
-/////////null & undefined - special types
+///////// null & undefined - special types
 
-/////////Inferred null & a first look at type narrowing
+///////// Inferred null & a first look at type narrowing
 
-/////////Forced “Not Null” and optional chaining
+///////// Forced “Not Null” and optional chaining
 
-/////////Type casting
+///////// Type casting
 
-/////////The “unknown” type
+///////// The “unknown” type
 
-/////////Optional values & typescript
+///////// Optional values & typescript
 
-/////////Nullish coalescing
+///////// Nullish coalescing
