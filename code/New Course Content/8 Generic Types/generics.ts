@@ -34,3 +34,8 @@ function mergeObj<T extends object>(a: T, b: T) {
 const merged = mergeObj({ userName: 'Max' }, { lastName: 'William' });
 
 ////////////////// Constraints & multiple generic types
+function mergeObject<T extends object, U extends object>(a: T, b: U) {
+   return { ...a, ...b };
+}
+
+const mergedd = mergeObject({ userName: 'Max' }, { age: 33 });
