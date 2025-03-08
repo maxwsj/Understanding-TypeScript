@@ -22,6 +22,21 @@ class LinkedList {
         }
         this.length++;
     }
+    getNumberOfElements() {
+        return `Length: ${this.length}`;
+    }
+    print() {
+        let current = this.root;
+        while (current) {
+            console.log(current.value);
+            current = current.next;
+        }
+    }
 }
 const numberList = new LinkedList();
+numberList.add(55);
+numberList.add(5);
+numberList.add(33);
+console.log(numberList.getNumberOfElements());
+numberList.print();
 const stringList = new LinkedList();
