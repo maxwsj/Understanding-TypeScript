@@ -1,3 +1,5 @@
+////////////////// Creating and using a generic type
+
 let names: Array<string> = ['Max', 'Anna'];
 
 type DataStore<T> = {
@@ -9,3 +11,10 @@ store.name = 'Max';
 store.isInstructor = true;
 
 console.log(store);
+
+////////////////// Generic functions and interface
+function merge<T>(a: T, b: T) {
+   return [a, b];
+}
+
+const ids = merge<number>(1, 2);
