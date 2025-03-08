@@ -39,3 +39,10 @@ function mergeObject<T extends object, U extends object>(a: T, b: U) {
 }
 
 const mergedd = mergeObject({ userName: 'Max' }, { age: 33 });
+
+////////////////// Working with generic classes & interfaces
+class User<T> {
+   constructor(public id: T) {}
+}
+
+const user = new User('i1');
