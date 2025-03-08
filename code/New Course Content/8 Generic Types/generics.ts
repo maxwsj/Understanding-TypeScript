@@ -18,3 +18,10 @@ function merge<T>(a: T, b: T) {
 }
 
 const ids = merge<number>(1, 2);
+
+////////////////// Working with multiple generic parameters
+function meet<T, U>(a: T, b: U) {
+   return [a, b];
+}
+
+const tse = meet<number, string>(1, '2');
