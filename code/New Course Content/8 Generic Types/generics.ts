@@ -25,3 +25,12 @@ function meet<T, U>(a: T, b: U) {
 }
 
 const tse = meet<number, string>(1, '2');
+
+////////////////// Generics & constraints
+function mergeObj<T extends object>(a: T, b: T) {
+   return { ...a, ...b };
+}
+
+const merged = mergeObj({ userName: 'Max' }, { lastName: 'William' });
+
+////////////////// Constraints & multiple generic types
