@@ -55,13 +55,3 @@ console.log(mathResults);
 // ✔ -? → Makes all properties required
 // ✔ readonly → Makes properties immutable
 // ✔ -readonly → Makes properties mutable
-
-//////////// Exploring template literal types
-
-//////////// Introducing conditional types
-
-//////////// Conditional types - another example
-
-//////////// Making sense of the “infer” leyword
-
-//////////// Typescript’s got you covered: built-in utility types
