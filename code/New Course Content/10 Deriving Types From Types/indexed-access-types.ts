@@ -19,3 +19,7 @@ type AppUsers = {
 };
 
 type Perms = AppUser['permissions']; // This automatically extracts the type of the permissions property.
+type Perm = Perms[number];
+
+type Names = string[];
+type Name = Names[number];
