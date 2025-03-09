@@ -19,6 +19,9 @@ type AppUsers = {
 };
 
 type Perms = AppUser['permissions']; // This automatically extracts the type of the permissions property.
+
+///////////// Accessing array elements with indexed access types
+
 type Perm = Perms[number];
 
 type Names = string[];
