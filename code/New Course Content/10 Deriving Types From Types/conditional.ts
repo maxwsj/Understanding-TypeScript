@@ -28,7 +28,3 @@ function getFullname<T extends object>(person: T): FullnameOrNothing<T> {
 
 const name1 = getFullname({});
 const name2 = getFullname({ firstName: 'Max', lastName: 'William' });
-
-//////////// Making sense of the “infer” leyword
-
-//////////// Typescript’s got you covered: built-in utility types
