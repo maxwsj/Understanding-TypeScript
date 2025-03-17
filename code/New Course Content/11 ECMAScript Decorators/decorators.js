@@ -50,7 +50,9 @@ function logger(target, ctx) {
     };
 }
 function autobind(target, ctx) {
-    console.log(target, ctx);
+    ctx.addInitializer(function () {
+        this[ctx.name] = this[ctx.name].bind(this);
+    });
 }
 let Person = (() => {
     let _classDecorators = [logger];
@@ -80,5 +82,5 @@ let Person = (() => {
     return Person = _classThis;
 })();
 const max = new Person();
-const dre = new Person();
-console.log(dre);
+const greet = max.greet;
+greet();

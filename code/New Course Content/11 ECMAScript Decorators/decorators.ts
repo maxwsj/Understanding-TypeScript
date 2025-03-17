@@ -19,7 +19,9 @@ function autobind(
    target: (...args: any[]) => any,
    ctx: ClassMemberDecoratorContext
 ) {
-   console.log(target, ctx);
+   ctx.addInitializer(function (this: any) {
+      this[ctx.name] = this[ctx.name].bind(this);
+   });
 }
 
 @logger
@@ -33,6 +35,7 @@ class Person {
 }
 
 const max = new Person();
-const dre = new Person();
 
-console.log(dre);
+const greet = max.greet;
+
+greet();
