@@ -53,6 +53,10 @@ function autobind(target, ctx) {
     ctx.addInitializer(function () {
         this[ctx.name] = this[ctx.name].bind(this);
     });
+    return function () {
+        console.log('Executing original function');
+        target.apply(this);
+    };
 }
 let Person = (() => {
     let _classDecorators = [logger];
