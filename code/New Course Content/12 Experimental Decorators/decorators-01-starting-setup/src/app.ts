@@ -1,9 +1,11 @@
-function Logger(target: Function) {
-   console.log('Logging....');
-   console.log(target);
+function Logger(logString: string) {
+   return function name(constructor: Function) {
+      console.log(logString);
+      console.log(constructor);
+   };
 }
 
-@Logger
+@Logger('LOGGIN - PERSON')
 class Person {
    name = 'Max';
 
@@ -11,7 +13,3 @@ class Person {
       console.log('Creating person object....');
    }
 }
-
-const pers = new Person();
-
-console.log(pers);
