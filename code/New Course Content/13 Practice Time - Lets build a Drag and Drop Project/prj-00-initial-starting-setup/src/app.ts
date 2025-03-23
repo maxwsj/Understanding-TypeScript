@@ -1,4 +1,40 @@
-// validation
+// Project State Management
+class ProjectState {
+   private listeners: any[] = [];
+   private projects: any[] = [];
+   private static instance: ProjectState;
+
+   private constructor() {}
+
+   static getInstance() {
+      if (this.instance) {
+         return this.instance;
+      }
+      this.instance = new ProjectState();
+      return this.instance;
+   }
+
+   addListener(listenerFn: Function) {
+      this.listeners.push(listenerFn);
+   }
+
+   addProject(title: string, description: string, numOfPeople: number) {
+      const newProject = {
+         id: Math.random().toString(),
+         title: title,
+         description: description,
+         people: numOfPeople,
+      };
+      this.projects.push(newProject);
+      for (const listenerFn of this.listeners) {
+         listenerFn(this.projects.slice());
+      }
+   }
+}
+
+const projectState = ProjectState.getInstance();
+
+// Validation
 interface Validatable {
    value: string | number;
    required?: boolean;
@@ -19,26 +55,26 @@ function validate(validatableInput: Validatable) {
       typeof validatableInput.value === 'string'
    ) {
       isValid =
-         isValid && validatableInput.value.length > validatableInput.minLength;
+         isValid && validatableInput.value.length >= validatableInput.minLength;
    }
    if (
       validatableInput.maxLength != null &&
       typeof validatableInput.value === 'string'
    ) {
       isValid =
-         isValid && validatableInput.value.length < validatableInput.maxLength;
+         isValid && validatableInput.value.length <= validatableInput.maxLength;
    }
    if (
       validatableInput.min != null &&
       typeof validatableInput.value === 'number'
    ) {
-      isValid = isValid && validatableInput.value > validatableInput.min;
+      isValid = isValid && validatableInput.value >= validatableInput.min;
    }
    if (
       validatableInput.max != null &&
       typeof validatableInput.value === 'number'
    ) {
-      isValid = isValid && validatableInput.value < validatableInput.max;
+      isValid = isValid && validatableInput.value <= validatableInput.max;
    }
    return isValid;
 }
@@ -61,12 +97,14 @@ class ProjectList {
    templateElement: HTMLTemplateElement;
    hostElement: HTMLDivElement;
    element: HTMLElement;
+   assignedProjects: any[];
 
    constructor(private type: 'active' | 'finished') {
       this.templateElement = document.getElementById(
          'project-list'
       )! as HTMLTemplateElement;
       this.hostElement = document.getElementById('app')! as HTMLDivElement;
+      this.assignedProjects = [];
 
       const importedNode = document.importNode(
          this.templateElement.content,
@@ -75,8 +113,24 @@ class ProjectList {
       this.element = importedNode.firstElementChild as HTMLElement;
       this.element.id = `${this.type}-projects`;
 
+      projectState.addListener((projects: any[]) => {
+         this.assignedProjects = projects;
+         this.renderProjects();
+      });
+
       this.attach();
       this.renderContent();
+   }
+
+   private renderProjects() {
+      const listEl = document.getElementById(
+         `${this.type}-projects-list`
+      )! as HTMLUListElement;
+      for (const prjItem of this.assignedProjects) {
+         const listItem = document.createElement('li');
+         listItem.textContent = prjItem.title;
+         listEl.appendChild(listItem);
+      }
    }
 
    private renderContent() {
@@ -132,16 +186,16 @@ class ProjectInput {
       const enteredDescription = this.descriptionInputElement.value;
       const enteredPeople = this.peopleInputElement.value;
 
-      const titleValidable: Validatable = {
+      const titleValidatable: Validatable = {
          value: enteredTitle,
          required: true,
       };
-      const descriptionValidable: Validatable = {
+      const descriptionValidatable: Validatable = {
          value: enteredDescription,
          required: true,
          minLength: 5,
       };
-      const peopleValidable: Validatable = {
+      const peopleValidatable: Validatable = {
          value: +enteredPeople,
          required: true,
          min: 1,
@@ -149,9 +203,9 @@ class ProjectInput {
       };
 
       if (
-         !validate(titleValidable) ||
-         !validate(descriptionValidable) ||
-         !validate(peopleValidable)
+         !validate(titleValidatable) ||
+         !validate(descriptionValidatable) ||
+         !validate(peopleValidatable)
       ) {
          alert('Invalid input, please try again!');
          return;
@@ -172,7 +226,7 @@ class ProjectInput {
       const userInput = this.gatherUserInput();
       if (Array.isArray(userInput)) {
          const [title, desc, people] = userInput;
-         console.log(title, desc, people);
+         projectState.addProject(title, desc, people);
          this.clearInputs();
       }
    }
