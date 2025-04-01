@@ -16,12 +16,17 @@ function App() {
          description: 'Practice working with TS',
       },
    ]);
+
+   const handleDeleteGoal = (id: number) => {
+      setGoals((prevGoals) => prevGoals.filter((g) => g.id !== id));
+   };
+
    return (
       <main>
          <Header image={{ src: goalsImg, alt: 'A list of goals' }}>
             <h1>Your course goals</h1>
          </Header>
-         <CourseGoals goals={goals} />
+         <CourseGoals goals={goals} onDelete={handleDeleteGoal} />
       </main>
    );
 }
