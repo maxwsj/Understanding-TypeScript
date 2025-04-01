@@ -1,3 +1,23 @@
+import { FormEvent } from 'react';
+
 export default function NewGoal() {
-   return <div></div>;
+   function handleSubmit(event: FormEvent<HTMLFormElement>) {
+      event.preventDefault();
+   }
+
+   return (
+      <form onSubmit={handleSubmit}>
+         <p>
+            <label htmlFor="goal">Your goal</label>
+            <input id="goal" type="text" />
+         </p>
+         <p>
+            <label htmlFor="summary">Shot summary</label>
+            <input id="summary" type="text" />
+         </p>
+         <p>
+            <button>Add Goal</button>
+         </p>
+      </form>
+   );
 }
